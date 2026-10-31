@@ -1,0 +1,55 @@
+// use prisma-8
+
+// Define your application models here.
+// Then run: npm run prisma:generate
+// Plan changes with: npm run prisma:migrate -- --name your_change
+model Product{
+  id         Int    @id @default(autoincrement())
+  name       String
+  price      Int
+  stock      Int @default(0)
+  categoryId Int
+  category Category @relation(fields:[categoryId],references:[id])
+}
+
+model Category {
+  id       Int          @id @default(autoincrement())
+  title    CategoryType @unique
+  products Product[]
+}
+
+enum CategoryType {
+  ELECTRONICS
+  MOBILE_PHONES
+  COMPUTERS
+  COMPUTER_ACCESSORIES
+  HOME_APPLIANCES
+  CLOTHING
+  SHOES
+  BAGS
+  JEWELRY
+  WATCHES
+  BEAUTY
+  PERSONAL_CARE
+  HEALTH
+  BABY_PRODUCTS
+  TOYS
+  BOOKS
+  STATIONERY
+  OFFICE_SUPPLIES
+  HOME_AND_KITCHEN
+  FURNITURE
+  HOME_DECOR
+  GARDEN
+  TOOLS
+  SPORTS
+  OUTDOOR
+  AUTOMOTIVE
+  PET_SUPPLIES
+  GROCERIES
+  FOOD_AND_BEVERAGES
+  MUSICAL_INSTRUMENTS
+  VIDEO_GAMES
+  ARTS_AND_CRAFTS
+  OTHER
+}

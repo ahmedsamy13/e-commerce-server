@@ -1,0 +1,16 @@
+node_modules/
+node_modules.backup-*/
+package-lock*.json
+src/prisma/contract.json
+src/prisma/contract.d.ts
+migrations/
+.prisma/
+dist/
+coverage/
+.env
+.env.*
+
+.agents/skills/
+.claude/skills/
+.cursor/skills/
+.devin/skills/

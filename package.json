@@ -1,0 +1,41 @@
+{
+  "type": "module",
+  "engines": {
+    "node": "^22.18.0 || ^24.11.0 || >=26.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "prisma:validate": "prisma contract emit",
+    "prisma:generate": "prisma contract emit",
+    "prisma:migrate": "prisma migration plan",
+    "prisma:apply": "prisma migration apply",
+    "prisma:status": "prisma db verify",
+    "db:check": "node scripts/check-db.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
+  },
+  "dependencies": {
+    "@prisma/orm-postgres": "8.0.0-rc.22",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10",
+    "prisma": "8.0.0-rc.29"
+  },
+  "overrides": {
+    "prisma": {
+      "@prisma/orm-toolchain": "8.0.0-rc.22"
+    }
+  }
+}
